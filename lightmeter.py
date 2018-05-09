@@ -60,7 +60,7 @@ class Lightmeter:
         sadly. Not robust, but I can see no better way."""
         lightmeterParams = {
             'idVendor': 0x04d8,
-            'idProduct': 0x000c,
+            'idProduct': 0xfcb7,
             'configuration': 1,
             'interface': (0, 0),
             'reqLen': 64

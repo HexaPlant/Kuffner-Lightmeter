@@ -1,6 +1,6 @@
 # Kuffner-Sternwarte-Lightmeter
 
-Alternative driver for the Kuffner-Sternwarte Lightmeter Mark 2.3, written in
+Alternative driver for the Kuffner-Sternwarte Lightmeter Mark 2.4, written in
 Python. More information on the hardware can be found at [the
 Kuffner-Sternwarte
 wiki](http://kuffner-sternwarte.at/hms/wiki/index.php5?title=Lightmeter). This
@@ -18,6 +18,11 @@ tabular data into a `pandas` `DataFrame` is provided.
   - `pyusb` for device access
   - `pandas` for easy data import
   - `socat` for the remote logging example
+
+## Install Dependencies
+
+ - sudo pip3 install pyusb pandas attrs
+
 
 ## Usage
 
