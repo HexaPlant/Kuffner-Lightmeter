@@ -127,14 +127,21 @@ class Lightmeter:
             for the TMB-package.
             Code from the Kuffner-Sternwarte web site.
         """
-        Chr = Ch1 / Ch0
+        
+        
+        if Ch0 != 0:
+            Chr = Ch1 / Ch0
+        else:
+            Chr = 0
         # Apply calibration recommended by manufacturer for different channel-ratios (IR-correction for vis-sensor to get Lux)
-        if Chr <= 0.50:                        Lux=0.0304  *Ch0  - 0.062*Ch0*(Ch1/Ch0)**1.4
+        if Chr > 0 and Chr <= 0.50:
+            Lux=0.0304  *Ch0  - 0.062*Ch0*(Ch1/Ch0)**1.4
         elif (0.50 < Chr) and (Chr  <= 0.61):  Lux=0.0224  *Ch0  - 0.031  *Ch1
         elif (0.61 < Chr) and (Chr  <= 0.80):  Lux=0.0128  *Ch0  - 0.0153 *Ch1
         elif (0.80 < Chr) and (Chr  <= 1.30):  Lux=0.00146*Ch0  - 0.00112*Ch1
         elif 1.30 < Chr:                       Lux=0
-        else: raise RuntimeError("Invalid daysensor channel ratio.")
+        else: 
+            Lux = 0
         # calibration with Voltcraft handheld vs. Lightmeter Mark 2.3 No. L001 TAOS-daysensor
         Faktor = 21.0
         return Lux*Faktor
